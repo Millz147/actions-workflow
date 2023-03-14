@@ -41,6 +41,10 @@ jobs:
         run: |
           pwd
           ls -a
-      - name: available variables
+      - name: default environnment variables
         run: |
-          echo $GITHUB_SHA
+          echo "COMMIT ID: ${$GITHUB_SHA}"
+          echo "EVENT NAME: ${GITHUB_EVENT_NAME}"
+          echo "REPOSITORY: ${GITHUB_REPOSITORY}"
+          echo "USERNAME : ${GITHUB_ACTOR}"
+          echo "CI: ${CI}"
