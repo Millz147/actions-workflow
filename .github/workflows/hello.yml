@@ -1,5 +1,5 @@
 name: Hello World
-on: 
+on:
   push:
     branches:
       - main
@@ -10,7 +10,3 @@ jobs:
       steps:
         - name: message
           run: echo "Hello World.!!!"
-        - name: nodeversion
-          run: |
-            node -v
-            npm -v
