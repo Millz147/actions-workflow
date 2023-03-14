@@ -13,4 +13,4 @@ jobs:
         with:
           who-to-greet: 'Ibrahim Habib'
       - name: output
-        run: echo ${{ steps.personid.outputs.time }}
+        run: echo "The time was ${{ steps.personid.outputs.time }}"
