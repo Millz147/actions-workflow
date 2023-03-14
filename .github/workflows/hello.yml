@@ -3,10 +3,9 @@ on:
   push:
     branches:
       - main
-
 jobs:
   greetings:
     runs-on: ubuntu-latest
-      steps:
-        - name: message
-          run: echo "Hello World.!!!"
+    steps:
+      - name: greet
+        run: echo "Hello World.!!!"
