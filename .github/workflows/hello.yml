@@ -5,10 +5,10 @@ on:
       - main
 
 jobs:
-  Greetings:
+  greetings:
     runs-on: ubuntu-latest
       steps:
-        - name:message
+        - name: message
           run: echo "Hello World.!!!"
         - name: nodeversion
           run: |
