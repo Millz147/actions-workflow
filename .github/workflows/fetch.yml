@@ -15,7 +15,10 @@ jobs:
           endpoint: https://api.github.com/repos/${{ github.repository }}/issues
           configuration: '{ "method": "POST", "body": {"title":"Automatic issue created for commit: ${{ github.sha }}","body":"This issue was automatically created after deploying on main using Action workflows"}, "headers": {"Authorization": "Bearer ${{ secrets.GITHUB_TOKEN }}", "Content-Type":"application/json"} }'
       - name: view fetch response
-        run: |
-          ls -a
-          cd fetch-api-data-action
-          ls -a
+        id: viewFetch
+        uses: antifree/json-to-variables@v1.0.1
+        with:
+          filename: "fetch-api-data-action/data.json"
+          prefix: res
+      - name: Show output
+        run: echo "The value was ${{ env.res_value }}, ${{ env.res_array_0_value }}, ${{ env.res_obj_value1 }}"
