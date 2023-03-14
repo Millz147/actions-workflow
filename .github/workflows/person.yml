@@ -3,19 +3,34 @@ on:
   push:
     branches:
       - main
+env: 
+  GLOBAL: Global Variable
+
 jobs:
   greet-someone:
+    env: 
+      JOB_GLOBAL: Job Global variable
     runs-on: ubuntu-latest
     steps:
       - name: greet
-        run: echo "Hello World.!!!"
+        env: 
+          STEP_LOCAL: This Step local variable
+        run: |
+          echo "Hello World.!!!"
+          echo "GLOBAL ${GLOBAL}"
+          echo "JOB_GLOBAL ${JOB_GLOBAL}"
+          echo "STEP_LOCAL ${STEP_LOCAL}"
       - name: person
         id: personid
         uses: actions/hello-world-javascript-action@main
         with:
           who-to-greet: 'Ibrahim Habib'
       - name: output
-        run: echo "The time was ${{ steps.personid.outputs.time }}"
+        run: |
+          echo "The time was ${{ steps.personid.outputs.time }}"
+          echo "GLOBAL ${GLOBAL}"
+          echo "JOB_GLOBAL ${JOB_GLOBAL}"
+          echo "STEP_LOCAL ${STEP_LOCAL}"
       - name: list files before checkout
         run: |
           pwd
@@ -26,3 +41,6 @@ jobs:
         run: |
           pwd
           ls -a
+      - name: available variables
+        run: |
+          echo $GITHUB_SHA
