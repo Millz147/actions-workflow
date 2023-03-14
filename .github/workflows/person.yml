@@ -39,13 +39,15 @@ jobs:
           echo "COMMIT ID: ${GITHUB_SHA}"
           echo "EVENT NAME: ${GITHUB_EVENT_NAME}"
           echo "REPOSITORY: ${GITHUB_REPOSITORY}"
-          echo "USERNAME : ${GITHUB_ACTOR}"
+          echo "USERNAME: ${GITHUB_ACTOR}"
           echo "CI: ${CI}"
-      - name: personal environment variables
+      - name: My personal environment variables
         env: 
           STEP_LOCAL: This Step local variable
         run: |
           echo "GLOBAL ${GLOBAL}"
           echo "JOB_GLOBAL ${JOB_GLOBAL}"
           echo "STEP_LOCAL ${STEP_LOCAL}"
+      - name: My secret variables
+        run: echo "SECRET VARIABLE ${{secrets.DEMO_SECRET}}"
 
