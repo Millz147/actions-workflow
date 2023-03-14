@@ -1,0 +1,16 @@
+name: Greet Someone
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  greet-someone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: person
+        id: personid
+        uses: actions/hello-world-javascript-action@main
+        with:
+          who-to-greet: 'Ibrahim Habib':
+      - name output
+        run: echo ${{steps.personid.output.time}}
