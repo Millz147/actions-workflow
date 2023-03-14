@@ -11,4 +11,5 @@ jobs:
         uses: JamesIves/fetch-api-data-action@v2
         with:
           endpoint: https://api.github.com/repos/${{ github.repository }}/issues
+          configuration: '{"method":"POST", "body":{"title": "Automatic issue created for commit: ${{ github.sha }}", "body":"This issue was automatically created after deploying on main using Action workflows"},"headers": {"Authorization": "Bearer ${{ secrets.GITHUB_TOKEN }}"}}'
           # configuration: '{ "method": "POST", "body": {"title": "Automatic issue created for commit: ${{ github.sha }}", "body":"This issue was automatically created after deploting on main using Action workflows"}, "headers": {"Authorization": "Bearer ${{ secrets.GITHUB_TOKEN }}", "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json"} }'
