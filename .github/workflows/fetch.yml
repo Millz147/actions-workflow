@@ -14,6 +14,12 @@ jobs:
         with:
           endpoint: https://api.github.com/repos/${{ github.repository }}/issues
           configuration: '{ "method": "POST", "body": {"title":"Automatic issue created for commit: ${{ github.sha }}","body":"This issue was automatically created after deploying on main using Action workflows"}, "headers": {"Authorization": "Bearer ${{ secrets.GITHUB_TOKEN }}", "Content-Type":"application/json"} }'
+      - name: Deploy the data.json file to main branch   🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: main 
+          folder: fetch-api-data-action 
+          target-folder: data 
       - name: set json file properties as env
         uses: antifree/json-to-variables@v1.0.1
         with:
