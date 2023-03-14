@@ -14,11 +14,10 @@ jobs:
         with:
           endpoint: https://api.github.com/repos/${{ github.repository }}/issues
           configuration: '{ "method": "POST", "body": {"title":"Automatic issue created for commit: ${{ github.sha }}","body":"This issue was automatically created after deploying on main using Action workflows"}, "headers": {"Authorization": "Bearer ${{ secrets.GITHUB_TOKEN }}", "Content-Type":"application/json"} }'
-      - name: view fetch response
-        id: viewFetch
+      - name: set json file properties as env
         uses: antifree/json-to-variables@v1.0.1
         with:
           filename: "fetch-api-data-action/data.json"
           prefix: res
       - name: Show output
-        run: echo "The value was ${{ env.res_value }}, ${{ env.res_array_0_value }}, ${{ env.res_obj_value1 }}"
+        run: echo "The value was ${{ env.res_url }}, ${{ env.res_repository_url }}, ${{ env.res_comments_url }}"
