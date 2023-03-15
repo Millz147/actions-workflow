@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: for dev branch only
-        if: github.ref_name == "dev"
+        if: github.ref_name == 'dev'
         run: echo "Pushed to dev branch"
       - name: for main branch only
-        if: github.ref_name == "branch"
+        if: github.ref_name == 'branch'
         run: echo "Pushed to main branch"
+        
