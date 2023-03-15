@@ -18,7 +18,7 @@ jobs:
         uses: JamesIves/fetch-api-data-action@v2
         with:
           endpoint: ${{ secrets.SLACK_WEBHOOK }}
-          configuration: '{ "method": "POST", "body": {"text":"${GITHUB_ACTOR} Pushed to dev branch right now.!!!"}, "headers": {"Content-Type":"application/json"} }'
+          configuration: '{ "method": "POST", "body": {"text":"${{ github.actor }} Pushed to dev branch right now.!!!"}, "headers": {"Content-Type":"application/json"} }'
 
       
 
