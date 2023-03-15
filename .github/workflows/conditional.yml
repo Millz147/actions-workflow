@@ -15,11 +15,11 @@ jobs:
         if: github.ref_name == 'main'
         run: echo "Pushed to main branch"
       - name: slack message on dev branch
-        if: for dev branch only
+        if:  github.ref_name == 'man'
         uses: JamesIves/fetch-api-data-action@v2
         with:
           endpoint: ${{ secrets.SLACK_WEBHOOK }}
-          configuration: '{ "method": "POST", "body": {"text":"${{ github.actor }} Pushed to dev branch right now.!!!"}, "headers": {"Content-Type":"application/json"} }'
+          configuration: '{ "method": "POST", "body": {"text":"${{ github.actor }} Pushed to main branch right now.!!!"}, "headers": {"Content-Type":"application/json"} }'
 
       
 
