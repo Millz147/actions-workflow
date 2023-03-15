@@ -1,0 +1,16 @@
+name: CONDITIONAL 
+on: 
+  push:
+    branches:
+      - dev
+      - master
+jobs:
+  condinonal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: for dev branch only
+        if: github.ref_name == "dev"
+        run: echo "Pushed to dev branch"
+      - name: for main branch only
+        if: github.ref_name == "branch"
+        run: echo "Pushed to main branch"
