@@ -1,4 +1,4 @@
-name: CONDITIONAL 
+name: Conditional 
 on: 
   push:
     branches:
@@ -12,6 +12,6 @@ jobs:
         if: github.ref_name == 'dev'
         run: echo "Pushed to dev branch"
       - name: for main branch only
-        if: github.ref_name == 'branch'
+        if: github.ref_name == 'main'
         run: echo "Pushed to main branch"
         
