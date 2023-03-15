@@ -5,7 +5,7 @@ on:
       - dev
       - master
 jobs:
-  condinonal:
+  conditional:
     runs-on: ubuntu-latest
     steps:
       - name: for dev branch only
