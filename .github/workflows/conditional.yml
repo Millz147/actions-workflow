@@ -17,11 +17,13 @@ jobs:
       - name: Checkout first, to access the folder here
         uses: actions/checkout@v3
       - name: slack message on main branch
+        id: msg
         if:  github.ref_name == 'main'
         uses: ./.github/actions/slack
         with:
           slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
           message: '${{ github.actor }} Pushed to main branch right now.!!!'
+      - run: echo ${{ steps.msg.outputs.response }}
 
       
 
