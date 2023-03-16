@@ -2,7 +2,8 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
-    "node-fetch": "^3.3.1"
+    "axios": "^1.3.4",
+    "node-fetch": "^2.6.0"
   },
   "name": "actions-workflow",
   "description": "Worflows",

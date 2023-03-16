@@ -7,9 +7,9 @@ const ActionRunner = async () => {
     const text = core.getInput('message');
     const response = await fetch(slack_webhook, {
       method: 'post',
-      body: {
+      body: JSON.stringify({
         text,
-      },
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
