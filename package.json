@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  },
+  "name": "actions-workflow",
+  "description": "Worflows",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ncc-build": "ncc build .github/actions/slack/index.js -o .github/actions/slack/dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Millz147/actions-workflow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Millz147/actions-workflow/issues"
+  },
+  "homepage": "https://github.com/Millz147/actions-workflow#readme"
+}

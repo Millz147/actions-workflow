@@ -14,12 +14,14 @@ jobs:
       - name: for main branch only
         if: github.ref_name == 'main'
         run: echo "Pushed to main branch"
-      - name: slack message on dev branch
+      - name: Checkout first, to access the folder here
+        uses: actions/checkout@v3
+      - name: slack message on main branch
         if:  github.ref_name == 'main'
-        uses: JamesIves/fetch-api-data-action@v2
+        uses: ./github/actions/slack
         with:
-          endpoint: ${{ secrets.SLACK_WEBHOOK }}
-          configuration: '{ "method": "POST", "body": {"text":"${{ github.actor }} Pushed to main branch right now.!!!"}, "headers": {"Content-Type":"application/json"} }'
+          slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+          message: '${{ github.actor }} Pushed to main branch right now.!!!'
 
       
 

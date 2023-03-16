@@ -1,0 +1,21 @@
+name: "Auto Slack Message"
+author: "Ibrahim Habib"
+description: "Send Slack Message with Github Action Workflow"
+inputs:
+  slack_webhook:
+    description: "Slack Webhook"
+    required: true
+  message:
+    description: "Message to be delivered"
+    required: true
+    default: "Auto Message to you from github action"
+outputs:
+  response:
+    description: "Output response"
+runs:
+  using: "node16"
+  main: "index.js"
+
+  
+  
+
