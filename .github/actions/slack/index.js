@@ -14,7 +14,7 @@ const ActionRunner = async () => {
         'Content-Type': 'application/json',
       },
     });
-    cconsole.log(response)
+    console.log(response)
     let data = await response.json();
     console.log(data)
     core.setOutput('response', JSON.stringify(data));
