@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
       - name: slack message on main branch
         if:  github.ref_name == 'main'
-        uses: ./github/actions/slack
+        uses: ./.github/actions/slack
         with:
           slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
           message: '${{ github.actor }} Pushed to main branch right now.!!!'
