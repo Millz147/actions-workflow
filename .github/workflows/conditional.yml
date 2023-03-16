@@ -16,7 +16,7 @@ jobs:
         run: echo "Pushed to main branch"
       - name: Checkout first, to access the folder here
         uses: actions/checkout@v3
-      - name: slack message on main branch
+      - name: slack message on main branch using my public action
         id: msg
         if:  github.ref_name == 'main'
         uses: Millz147/auto-slack-message@v1.0.0
