@@ -1,5 +1,5 @@
-import core from '@actions/core';
-import github from '@actions/github';
+const core = require('@actions/core');
+const github = require('@actions/github');
 
 const ActionRunner = async () => {
   try {
@@ -7,15 +7,15 @@ const ActionRunner = async () => {
     const text = core.getInput('message');
     const response = await fetch(slack_webhook, {
       method: 'post',
-      body:{
-        text
+      body: {
+        text,
       },
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    let data = await response.json()
-    core.setOutput('response', JSON.stringify(data))
+    let data = await response.json();
+    core.setOutput('response', JSON.stringify(data));
   } catch (error) {
     core.setFailed(error);
   }
