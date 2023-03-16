@@ -14,8 +14,7 @@ const ActionRunner = async () => {
         'Content-Type': 'application/json',
       },
     });
-    console.log(response);
-    core.setOutput('response', JSON.stringify(response));
+    core.setOutput('response', 'Message Sent Successfully.!!!');
   } catch (error) {
     core.setFailed(error);
   }
