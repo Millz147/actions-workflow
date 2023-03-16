@@ -5,7 +5,7 @@ const ActionRunner = async () => {
   try {
     const slack_webhook = core.getInput('slack_webhook');
     const text = core.getInput('message');
-    const response = await fetch(slack_webhook, {
+    await fetch(slack_webhook, {
       method: 'post',
       body: JSON.stringify({
         text,
@@ -14,7 +14,9 @@ const ActionRunner = async () => {
         'Content-Type': 'application/json',
       },
     });
-    core.setOutput('response', 'Message Sent Successfully.!!!');
+    const response = 'Message Sent Successfully.!!!';
+    console.log(response);
+    core.setOutput('response', response);
   } catch (error) {
     core.setFailed(error);
   }

@@ -19,7 +19,7 @@ jobs:
       - name: slack message on main branch
         id: msg
         if:  github.ref_name == 'main'
-        uses: ./.github/actions/slack
+        uses: Millz147/auto-slack-message@v1.0.0
         with:
           slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
           message: '${{ github.actor }} Pushed to main branch right now.!!!'
