@@ -4530,9 +4530,8 @@ const ActionRunner = async () => {
         'Content-Type': 'application/json',
       },
     });
-    console.log(response)
-    let data = await response.json();
-    console.log(data)
+
+    let data = await JSON.parse(response)
     core.setOutput('response', JSON.stringify(data));
   } catch (error) {
     core.setFailed(error);
